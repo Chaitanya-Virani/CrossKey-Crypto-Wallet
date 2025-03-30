@@ -9,7 +9,7 @@
   margin-top: 20px;
 }
 
-.wallet-options {
+.dashboard {
   text-align: center;
   background-color: #f5f5f5;
   padding: 20px;
@@ -30,7 +30,7 @@
   background-color: #0056b3;
 }
 
-.password-form {
+.import-form {
   text-align: center;
   background-color: #f5f5f5;
   padding: 20px;
@@ -46,16 +46,6 @@
   border-radius: 4px;
   font-family: Arial, sans-serif;
   resize: vertical;
-}
-
-.password-input {
-  width: 100%;
-  max-width: 300px;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-family: Arial, sans-serif;
 }
 
 .form-buttons {
@@ -157,9 +147,9 @@
   margin: 5px 0;
 }
 
-.back-button {
+.dashboard-button {
   padding: 10px 20px;
-  background-color: #17a2b8;
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
@@ -167,8 +157,8 @@
   margin-top: 20px;
 }
 
-.back-button:hover {
-  background-color: #138496;
+.dashboard-button:hover {
+  background-color: #0056b3;
 }
 
 .error {
