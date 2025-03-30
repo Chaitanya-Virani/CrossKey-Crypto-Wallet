@@ -1,7 +1,7 @@
-// src/components/Wallet.jsx
 import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import fetchBalance from '../utils/fetchBalance';
+import PasswordManager from './PasswordManager';
 
 function Wallet({ walletCreated, setWalletCreated }) {
   const [seedPhrase, setSeedPhrase] = useState('');
@@ -13,25 +13,29 @@ function Wallet({ walletCreated, setWalletCreated }) {
   const [showImportForm, setShowImportForm] = useState(false);
   const [importSeedPhrase, setImportSeedPhrase] = useState('');
   const [existingWallets, setExistingWallets] = useState([]);
-  const [network, setNetwork] = useState('amoy'); // Default to Polygon Amoy
+  const [network, setNetwork] = useState('sepolia'); // Default to 'sepolia'
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Track dropdown state
+  const [isUnlocked, setIsUnlocked] = useState(false); // Password lock state
 
-  // Check for existing wallets on mount
+  // Load existing wallets only when unlocked
   useEffect(() => {
-    const storedWallets = localStorage.getItem('wallets');
-    if (storedWallets) {
-      const wallets = JSON.parse(storedWallets);
-      setExistingWallets(wallets);
+    if (isUnlocked) {
+      const storedWallets = localStorage.getItem('wallets');
+      if (storedWallets) {
+        const wallets = JSON.parse(storedWallets);
+        setExistingWallets(wallets);
+      }
     }
-  }, []);
+  }, [isUnlocked]);
 
-  // Fetch balance when network or address changes
+  // Fetch balance when address, network, or unlock state changes
   useEffect(() => {
-    if (ethAddress) {
+    if (ethAddress && isUnlocked) {
       fetchWalletBalance(ethAddress, network);
     }
-  }, [ethAddress, network]);
+  }, [ethAddress, network, isUnlocked]);
 
-  // Fetch balance function
+  // Fetch wallet balance
   const fetchWalletBalance = async (address, selectedNetwork) => {
     try {
       const balance = await fetchBalance(address, selectedNetwork);
@@ -42,6 +46,12 @@ function Wallet({ walletCreated, setWalletCreated }) {
     }
   };
 
+  // Shorten wallet address (6 chars at start, 5 at end)
+  const shortenAddress = (address) => {
+    if (!address || address.length < 11) return address; // Adjusted for 6+5
+    return `${address.slice(0, 6)}......${address.slice(-5)}`;
+  };
+
   // Load selected wallet
   const loadWallet = async (wallet) => {
     setSeedPhrase(wallet.seedPhrase);
@@ -50,7 +60,7 @@ function Wallet({ walletCreated, setWalletCreated }) {
     setWalletCreated(true);
     setShowDashboard(false);
     setError('');
-    // Balance will be fetched by useEffect when ethAddress and network are set
+    setIsDropdownOpen(false);
   };
 
   // Generate new wallet
@@ -152,7 +162,18 @@ function Wallet({ walletCreated, setWalletCreated }) {
       setShowDashboard(true);
       setError('');
     }
+    setIsDropdownOpen(false);
   };
+
+  // Unlock handler for PasswordManager
+  const handleUnlock = () => {
+    setIsUnlocked(true);
+  };
+
+  // Render PasswordManager if not unlocked
+  if (!isUnlocked) {
+    return <PasswordManager onUnlock={handleUnlock} />;
+  }
 
   return (
     <div className="wallet-container">
@@ -176,24 +197,34 @@ function Wallet({ walletCreated, setWalletCreated }) {
           {existingWallets.length > 0 && (
             <div className="wallet-list">
               <h3>Existing Wallets</h3>
-              <ul>
-                {existingWallets.map((wallet, index) => (
-                  <li key={index} className="wallet-item">
-                    <button
-                      onClick={() => loadWallet(wallet)}
-                      className="wallet-select-button"
-                    >
-                      {wallet.ethAddress}
-                    </button>
-                    <button
-                      onClick={() => deleteWallet(wallet)}
-                      className="delete-button"
-                    >
-                      Delete
-                    </button>
-                  </li>
-                ))}
-              </ul>
+              <div className="custom-dropdown">
+                <button
+                  className="dropdown-toggle"
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                >
+                  Select a Wallet {isDropdownOpen ? '▲' : '▼'}
+                </button>
+                {isDropdownOpen && (
+                  <div className="dropdown-menu">
+                    {existingWallets.map((wallet, index) => (
+                      <div key={index} className="dropdown-item">
+                        <button
+                          onClick={() => loadWallet(wallet)}
+                          className="wallet-option"
+                        >
+                          {shortenAddress(wallet.ethAddress)}
+                        </button>
+                        <button
+                          onClick={() => deleteWallet(wallet)}
+                          className="delete-button"
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           )}
           {error && <p className="error">{error}</p>}

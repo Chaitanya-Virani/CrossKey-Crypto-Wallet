@@ -15,6 +15,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
+
 }
 
 .dashboard {
@@ -231,4 +232,131 @@ body {
   font-size: 12px;
   margin-top: 10px;
   font-weight: 500;
+}
+
+/* Add these styles to the bottom of src/style.css */
+.custom-dropdown {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.dropdown-toggle {
+  width: 100%;
+  padding: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: left;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.dropdown-toggle:hover {
+  background-color: #2980b9;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.dropdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-left: 10px;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.wallet-option {
+  background: none;
+  border: none;
+  color: #34495e;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: left;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wallet-option:hover {
+  color: #3498db;
+}
+
+.dropdown-item .delete-button {
+  padding: 4px 8px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item .delete-button:hover {
+  background-color: #c0392b;
+}
+
+/* Remove old wallet list styles that are no longer needed */
+.wallet-list ul,
+.wallet-list li,
+.wallet-item,
+.wallet-select-button {
+  display: none; /* Hide old styles */
+}
+/* Add these styles to src/style.css if not already present */
+.password-container {
+  padding: 20px;
+}
+
+.password-setup,
+.password-login {
+  text-align: center;
+}
+
+.password-setup h2,
+.password-login h2 {
+  color: #2c3e50;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.password-setup p,
+.password-login p {
+  color: #7f8c8d;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.password-input {
+  width: 100%;
+  max-width: 250px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
 }
