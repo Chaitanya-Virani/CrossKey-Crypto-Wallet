@@ -166,3 +166,17 @@
   margin-top: 10px;
   font-weight: bold;
 }
+/* Add this to the bottom of src/style.css */
+.network-dropdown {
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.network-dropdown:hover {
+  border-color: #007bff;
+}
