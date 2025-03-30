@@ -1,10 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './style.css'
+// src/main.jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import Wallet from './components/Wallet';
+import './style.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <Wallet walletCreated={false} setWalletCreated={() => {}} />
+  </React.StrictMode>
+);
