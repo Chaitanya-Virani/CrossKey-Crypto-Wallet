@@ -7,19 +7,26 @@ body {
   width: 350px; /* Fixed width for Chrome popup */
   min-height: 400px; /* Minimum height for popup */
   overflow-x: hidden;
+  height:fit-content;
 }
 
 .wallet-container {
   padding: 20px;
-  background: linear-gradient(135deg, #ffffff, #e6f0fa);
+  background:#f4f7f6;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
+
 
 }
 
 .dashboard {
   text-align: center;
+  /* margin-top: 30px; */
+  padding: 15px;
+  background-color: #F2E2B1;
+  border-radius: 10px;
+  border: #210F37 3px solid;
 }
 
 .dashboard h2 {
@@ -36,7 +43,8 @@ body {
 
 .option-button {
   padding: 10px 20px;
-  background-color: #3498db;
+ 
+  background-color: #727D73;
   color: white;
   border: none;
   border-radius: 25px;
@@ -47,7 +55,7 @@ body {
 }
 
 .option-button:hover {
-  background-color: #2980b9;
+  background-color: #735F32;
 }
 
 .import-form {
@@ -94,7 +102,7 @@ body {
 }
 
 .cancel-button:hover {
-  background-color: #7f8c8d;
+  background-color: #C69749;
 }
 
 .wallet-list {
@@ -173,7 +181,7 @@ body {
 .wallet-section {
   margin-bottom: 20px;
   background: #ffffff;
-  padding: 15px;
+  padding: 0px;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
@@ -245,7 +253,7 @@ body {
 .dropdown-toggle {
   width: 100%;
   padding: 10px;
-  background-color: #3498db;
+  background-color: #727D73;
   color: white;
   border: none;
   border-radius: 8px;
@@ -257,7 +265,7 @@ body {
 }
 
 .dropdown-toggle:hover {
-  background-color: #2980b9;
+  background-color: #735F32;
 }
 
 .dropdown-menu {
@@ -369,7 +377,7 @@ body {
 }
 
 .balance-section{
-  margin-left: 70px;
+  margin-left: 0px;
 }
 
 .address-section{
@@ -380,5 +388,229 @@ body {
 .address-section p{
   text-align: center;
 }
+.wallet-detail {
+  background-color: #55AD9B; /* Light blue background */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  border: #210F37 3px solid;
+}
 
+.network-section {
+  margin-bottom: 20px;
+}
 
+.network-dropdown {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.wallet-address-section {
+  margin-bottom: 20px;
+}
+
+.wallet-address-container {
+  background-color: #535C91; /* Green background for address */
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wallet-address {
+  margin: 0;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 80%;
+}
+
+.copyButton {
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.copyButton:hover {
+  color: #e6f0fa;
+}
+
+.balance-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.balance-section p {
+  margin: 0;
+  color: #333;
+}
+
+.wallet-info {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.wallet-info h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.wallet-section {
+  margin-bottom: 20px;
+}
+
+.collapsible-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  
+}
+
+.collapsible-header h3 {
+  font-size: 16px;
+  color: #555;
+  margin: 0;
+}
+
+.collapsible-content {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 0 0 5px 5px;
+  border-top: 1px solid #ddd;
+}
+
+.collapsible-content p {
+  margin: 0;
+  color: #333;
+  word-break: break-all;
+}
+
+.dashboard-button {
+  background-color: #1b2071;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.dashboard-button:hover {
+  background-color: #4e5aa1;
+}
+
+/* Toast notification styling */
+.Toastify__toast {
+  background-color: #e6f0fa;
+  color: #333;
+}
+
+.Toastify__toast--success {
+  border: 1px solid #00cc00;
+}
+.transfer-section {
+  padding: 20px;
+  background-color: #f9f9f9; /* Light gray background for contrast */
+  border-radius: 10px; /* Rounded corners for the section */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: 400px; /* Limit the width for better readability */
+  margin: 0 auto; /* Center the section */
+  
+}
+
+/* Styling for the section title */
+.transfer-section h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333; /* Darker text for better contrast */
+  margin-bottom: 20px; /* Space below the title */
+  text-align: center; /* Center the title */
+}
+
+/* Styling for the input fields */
+.transfer-input {
+  width: 100%; /* Full width of the container */
+  padding: 12px; /* Increased padding for better touch area */
+  margin-bottom: 15px; /* Space between input fields */
+  border: 1px solid #e0e0e0; /* Light border */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  font-size: 14px;
+  color: #333; /* Dark text for readability */
+  background-color: #fff; /* White background for the input */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  margin-left: -15px;
+}
+
+/* Placeholder styling */
+.transfer-input::placeholder {
+  color: #999; /* Lighter placeholder text */
+  font-style: italic; /* Italicize placeholder for distinction */
+}
+
+/* Focus state for input fields */
+.transfer-input:focus {
+  outline: none;
+  border-color: #4AB8A1; /* Teal border on focus (matches the theme) */
+  box-shadow: 0 0 5px rgba(74, 184, 161, 0.3); /* Glow effect on focus */
+}
+
+.transfer-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4AB8A1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.transfer-button:hover {
+  background-color: #3A9C87;
+}
+
+.transfer-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Styling for success message and transaction info */
+.success-message {
+  color: #4AB8A1;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.transaction-info {
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.transaction-info a {
+  color: #4AB8A1;
+  text-decoration: none;
+}
+
+.transaction-info a:hover {
+  text-decoration: underline;
+}
