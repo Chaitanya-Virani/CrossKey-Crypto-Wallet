@@ -1,12 +1,73 @@
-# React + Vite
+# Crypto Wallet Extension
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Chrome extension for managing Ethereum (Sepolia Testnet) and Polygon (Amoy Testnet) wallets. Built with React and Vite.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Password Protection:** Secure your wallet with a password.
+- **Create Wallet:** Generate a new wallet with a 12-word seed phrase.
+- **Import Wallet:** Restore wallets using a seed phrase.
+- **View Details:** See wallet address, balance, and seed phrase.
+- **Transfer Funds:** Send ETH/POL to other addresses.
+- **Manage Multiple Wallets:** Switch and delete wallets.
+- **Network Support:** Ethereum Sepolia and Polygon Amoy testnets.
+- **Explorer Links:** View transactions on Etherscan or Polygonscan.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js and npm installed
+
+### Installation
+
+```sh
+npm install
+```
+
+### Development
+
+```sh
+npm run dev
+```
+
+### Build for Chrome Extension
+
+```sh
+npm run build
+```
+
+The output will be in the `dist/` folder. Load this folder as an unpacked extension in Chrome.
+
+### Environment Variables
+
+Set your Infura API key in `.env`:
+
+```
+VITE_INFURA_API_KEY=your_infura_project_id
+```
+
+### Folder Structure
+
+- `src/components/`: React components for wallet UI
+- `src/utils/`: Wallet logic and balance fetching
+- `public/`: Icons and assets
+- `manifest.json`: Chrome extension manifest
+
+### Security
+
+- Password is hashed before storage.
+- Wallets are stored in localStorage (not encrypted).
+- For production, encrypt wallet data and improve security.
+
+### License
+
+MIT
+
+---
+
+## Credits
+
+- [ethers.js](https://docs.ethers.org/)
+- [Ant Design](https://ant.design/)
+- [React](https://react.dev/)
